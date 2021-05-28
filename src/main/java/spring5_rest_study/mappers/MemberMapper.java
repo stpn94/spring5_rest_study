@@ -9,14 +9,14 @@ import spring5_rest_study.dto.Member;
 @Component
 public interface MemberMapper {
 
-	List<Member> selectMemberByAll();
+	Member selectMemberById(long id);
 
-	Member selectMemberById(long memId);
+	List<Member> selectMemberByAll();
 
 	int insertMember(Member member);
 
 	int updateMember(Member member);
 
-	int deleteMember(Member member);
+	int deleteMember(long id);
 
 }

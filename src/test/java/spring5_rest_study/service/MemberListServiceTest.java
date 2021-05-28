@@ -1,4 +1,4 @@
-package spring5_rest_study.service.impl;
+package spring5_rest_study.service;
 
 import java.util.List;
 
@@ -16,24 +16,24 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import spring5_rest_study.config.ContextRoot;
 import spring5_rest_study.dto.Member;
-import spring5_rest_study.service.MemberListService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ContextRoot.class })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @WebAppConfiguration
 public class MemberListServiceTest {
-	private static final Log log = LogFactory.getLog(MemberListServiceTest.class);
+	protected static final Log log = LogFactory.getLog(MemberListServiceTest.class);
 
 	@Autowired
 	private MemberListService service;
-
+	
 	@Test
-	public void testGetList() {
+	public void testGetLists() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		List<Member> list = service.getLists();
 		Assert.assertNotNull(list);
-
+		
+		list.forEach(s->log.debug(s.toString()));
 	}
 
 }

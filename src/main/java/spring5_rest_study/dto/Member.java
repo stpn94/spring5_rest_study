@@ -19,6 +19,10 @@ public class Member {
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Member(String email) {
+		this.email = email;
+	}
 
 	public Member(String email, String password, String name) {
 		this.email = email;
@@ -33,6 +37,7 @@ public class Member {
 		this.registerDateTime = registerDateTime;
 	}
 
+	
 	public void changePassword(String oldPassword, String newPassword) {
 		if (!password.equals(oldPassword))
 			throw new WrongIdPasswordException();

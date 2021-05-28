@@ -1,7 +1,5 @@
 package spring5_rest_study.service.impl;
 
-import java.util.List;
-
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,20 +7,19 @@ import org.springframework.stereotype.Service;
 
 import spring5_rest_study.dto.Member;
 import spring5_rest_study.mappers.MemberMapper;
-import spring5_rest_study.service.MemberListService;
+import spring5_rest_study.service.GetMemberService;
 
 @Service
-public class MemberListServiceImpl implements MemberListService {
-	static final Log log = LogFactory.getLog(MemberListServiceImpl.class);
+public class GetMemberServiceImpl implements GetMemberService {
+	static final Log log = LogFactory.getLog(GetMemberServiceImpl.class);
 
 	@Autowired
 	private MemberMapper mapper;
 
 	@Override
-	public List<Member> getLists() {
-		List<Member> list = mapper.selectMemberByAll();
-		log.debug("service - getLists() > " + list.size());
-		return list;
+	public Member getMember(long id) {
+		log.debug("service - getMember() > " + id);
+		return mapper.selectMemberById(id);
 	}
 
 }
