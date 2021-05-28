@@ -9,9 +9,9 @@ import spring5_rest_study.dto.Member;
 @Component
 public interface MemberMapper {
 
-	Member selectMemberById(long memId);
+	List<Member> selectMemberByAll();
 
-	List<Member> selectMemberAll();
+	Member selectMemberById(long memId);
 
 	int insertMember(Member member);
 

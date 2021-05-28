@@ -47,7 +47,7 @@ public class MemberMapperTest {
 	@Test
 	public void test2SelectMemberAll() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		List<Member> list = mapper.selectMemberAll();
+		List<Member> list = mapper.selectMemberByAll();
 		Assert.assertNotNull(list);
 
 		list.forEach(s -> log.debug(s.toString()));

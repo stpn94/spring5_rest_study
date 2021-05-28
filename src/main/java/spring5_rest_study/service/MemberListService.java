@@ -8,6 +8,6 @@ import spring5_rest_study.dto.Member;
 
 @Service
 public interface MemberListService {
-
-	List<Member> showMemberAll();
+	
+	List<Member> getLists();
 }
