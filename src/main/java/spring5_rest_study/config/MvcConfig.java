@@ -38,7 +38,9 @@ public class MvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/main").setViewName("main");
+		registry.addViewController("/memberlist").setViewName("/member/list");
+		registry.addViewController("/employeelist").setViewName("/employee/list");
+		registry.addViewController("/read").setViewName("/member/get");
 	}
 
 	@Bean
@@ -53,11 +55,15 @@ public class MvcConfig implements WebMvcConfigurer {
 	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json()
+		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder
+				.json()
 				.featuresToEnable(SerializationFeature.INDENT_OUTPUT)
 				.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(formatter))
-				.simpleDateFormat("yyyy-MM-dd HH:mm:ss").build();
+				.simpleDateFormat("yyyy-MM-dd HH:mm:ss")
+				.build();
 		converters.add(0, new MappingJackson2HttpMessageConverter(objectMapper));
 	}
+	
+		
 
 }

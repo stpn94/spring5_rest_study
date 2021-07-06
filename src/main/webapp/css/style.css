@@ -1,0 +1,25 @@
+@charset "UTF-8";
+body{
+   text-align: center;
+}
+h2{
+   display: inline;
+   width: 100px;
+}
+
+table{
+   margin: auto;
+   border: 1px solid #ccc; 
+   border-top: 2px solid red; 
+   border-collapse: collapse;
+}
+
+thead{
+   background-color: #e4e4e4;
+}
+
+td,th{
+   border: 1px solid #ccc;
+   text-align:center;
+   padding: 10px;
+}
